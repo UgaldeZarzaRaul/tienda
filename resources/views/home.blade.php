@@ -4,6 +4,7 @@
 
 @section('title','Viedeogames Universie')
 
+
 @section('content_header')
 <h1>Tienda de Videojuegos</h1>
 @stop
@@ -16,6 +17,9 @@
     <div class="card-body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi voluptates, porro libero voluptas nobis dolores reprehenderit quos, sequi deleniti commodi ipsum quas laborum soluta, illo neque provident. Recusandae, harum dolor.</p>
     </div>
+    <div>
+        
+    </div>
 </div>
 
 @stop
@@ -25,7 +29,11 @@
 @stop
 
 @section('js')
-<script>console.log('hola'); </script>
+<script>
+    Swal.fire(
+        'Exito'
+    )
+</script>
 @stop
 
 @endsection

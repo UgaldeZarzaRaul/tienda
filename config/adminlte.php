@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
-    'title_prefix' => '',
+    'title' => 'Viedeogames Universie',
+    'title_prefix' => 'Viedeogames Universie | ',
     'title_postfix' => '',
 
     /*
@@ -30,8 +30,8 @@ return [
     |
     */
 
-    'use_ico_only' => false,
-    'use_full_favicon' => false,
+    'use_ico_only' => true,
+    'use_full_favicon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Videogames</b>Universie',
+    'logo_img' => 'vendor/adminlte/dist/img/logo 1.jpeg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -84,10 +84,10 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => false,
+        'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'Auth Logo',
+            'path' => 'vendor/adminlte/dist/img/logo 1.jpeg',
+            'alt' => 'logo 1',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -113,7 +113,7 @@ return [
         'enabled' => true,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/logo 1.jpeg',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -136,9 +136,9 @@ return [
     'usermenu_enabled' => true,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
+    'usermenu_image' => true,
     'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -171,7 +171,7 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-danger',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
@@ -198,7 +198,7 @@ return [
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-danger navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -236,8 +236,8 @@ return [
     |
     */
 
-    'right_sidebar' => false,
-    'right_sidebar_icon' => 'fas fa-cogs',
+    'right_sidebar' => true,
+    'right_sidebar_icon' => 'fas fa-desktop',
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
     'right_sidebar_push' => true,
@@ -263,7 +263,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
     'disable_darkmode_routes' => false,
 
     /*
@@ -302,8 +302,34 @@ return [
         // Navbar items:
         [
             'type' => 'navbar-search',
-            'text' => 'search',
+            'text' => 'Buscar',
+            'serch'=> true,
             'topnav_right' => true,
+        ],
+        [
+            'text'=>'Usuarios',
+            'route'=> 'usuarios',
+            'topnav'=>true,
+        ],
+        [
+            'text'=>'Consolas',
+            'url'=> '#',
+            'topnav'=>true,
+        ],
+        [
+            'text'=>'Videojuegos Nuevos',
+            'url'=> '#',
+            'topnav'=>true,
+        ],
+        [
+            'text'=>'VIdeojuegos Usados',
+            'url'=> '#',
+            'topnav'=>true,
+        ],
+        [
+            'text'=>'VIdeojuegos Digitales',
+            'url'=> '#',
+            'topnav'=>true,
         ],
         [
             'type' => 'fullscreen-widget',
@@ -313,7 +339,7 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'Buscar',
         ],
         [
             'text' => 'blog',
@@ -321,75 +347,41 @@ return [
             'can' => 'manage-blog',
         ],
         [
-            'text' => 'pages',
+            'text' => 'Menu',
+            'route' => 'home',
+        ],
+        [
+            'text' => 'Cliente',
             'url' => 'admin/pages',
             'icon' => 'far fa-fw fa-file',
-            'label' => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'CONFIGURACION DE CUENTA'],
         [
-            'text' => 'profile',
+            'text' => 'Perfil',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Editar contraseña',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        
+        ['header' => 'PLATAFORMAS'],
         [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
+            'text' => 'Nintendo',
             'icon_color' => 'red',
             'url' => '#',
         ],
         [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
+            'text' => 'Playstation',
+            'icon_color' => 'blue',
             'url' => '#',
         ],
         [
-            'text' => 'information',
-            'icon_color' => 'cyan',
+            'text' => 'Xbox',
+            'icon_color' => 'green',
             'url' => '#',
         ],
     ],
@@ -430,7 +422,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -450,7 +442,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -475,12 +467,12 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.min.js',
                 ],
             ],
         ],
