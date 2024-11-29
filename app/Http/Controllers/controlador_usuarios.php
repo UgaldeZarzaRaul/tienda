@@ -8,12 +8,21 @@ use Auth;
 use Illuminate\Support\Facades\Session;
 
 use App\Models\usuarios;
+use DB;
 
 class controlador_usuarios extends Controller
 {
-    public function usuarios(){
-        return view('usuarios')
-        ->with(['usuarios' => usuarios::all()]);
+    public function usuarios(Request $request){
+        // Obtener el valor de la búsqueda
+        $buscar = $request->input('buscar');
+        
+        // Si se ha proporcionado un término de búsqueda, filtramos, de lo contrario traemos todos los registros.
+        $usuarios = usuarios::when($buscar, function ($query, $buscar) {
+            return $query->where('nombre', 'like', '%' . $buscar . '%');  // Filtrar por nombre
+        })->paginate(5);  // Paginar los resultados con 5 usuarios por página
+        
+        // Pasar los usuarios a la vista con la variable 'usuarios'
+        return view('usuarios', compact('usuarios'));
     }
 
     public function usuario_alta(){
@@ -84,4 +93,21 @@ class controlador_usuarios extends Controller
         $id->delete();
         return redirect()->route('usuarios');
     }
+    public function graficos_usuarios(Request $request)
+    {
+        // Obtener el conteo de usuarios por nombre
+        $usuarios = usuarios::select(DB::raw('count(*) as total, nombre'))
+            ->groupBy('nombre')
+            ->get();
+        
+        // Obtener los datos de los usuarios para la gráfica
+        $labels = $usuarios->pluck('nombre');  // Nombres de los usuarios
+        $data = $usuarios->pluck('total');     // Conteo de usuarios por nombre
+
+        // Pasar los datos a la vista
+        return view('graficos_usuarios', compact('labels', 'data'));
+    }
+
+    
+    
 }

@@ -313,22 +313,22 @@ return [
         ],
         [
             'text'=>'Consolas',
-            'url'=> '#',
+            'url'=> 'consolas',
             'topnav'=>true,
         ],
         [
             'text'=>'Videojuegos Nuevos',
-            'url'=> '#',
+            'url'=> 'nuevos',
             'topnav'=>true,
         ],
         [
             'text'=>'VIdeojuegos Usados',
-            'url'=> '#',
+            'url'=> 'videojuego',
             'topnav'=>true,
         ],
         [
             'text'=>'VIdeojuegos Digitales',
-            'url'=> '#',
+            'url'=> 'digitales',
             'topnav'=>true,
         ],
         [
@@ -352,7 +352,7 @@ return [
         ],
         [
             'text' => 'Cliente',
-            'url' => 'admin/pages',
+            'url' => 'clientes',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],

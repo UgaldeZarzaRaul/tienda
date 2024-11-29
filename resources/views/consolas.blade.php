@@ -2,7 +2,7 @@
 
 @section('content')
 
-@section('title', 'Videogames Universe')
+@section('title', 'Tienda de Videojuegos')
 
 @section('content_header')
     <h1>Tienda de Videojuegos</h1>
@@ -12,22 +12,22 @@
 <body>
     <div class="container">
         <br><br>
-        <h3>Lista de Usuarios de Videgames Universe</h3>
-        <h5>Nuevos Usuarios</h5>
+        <h3>Lista de Consolas</h3>
+        <h5>CRUD: Consolas</h5>
         <hr>
-        
-        <!-- Botón para registrar nuevo usuario -->
+
+        <!-- Botón para registrar nueva consola -->
         <p style="text-align: right;">
-            <a href="{{ route('usuario_alta') }}">
-                <button type="button" class="btn btn-primary btn-sm">Nuevo Registro Usuario</button>
+            <a href="{{ route('consola_alta') }}">
+                <button type="button" class="btn btn-primary btn-sm">Nuevo Registro de Consola</button>
             </a>
         </p>
 
         <!-- Formulario de búsqueda -->
-        <form action="{{ route('usuarios') }}" method="GET">
+        <form action="{{ route('consolas') }}" method="GET">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" name="buscar" value="{{ old('buscar') }}" id="floatingBuscar" 
-                       placeholder="Ejemplo: Juan" aria-describedby="buscarHelp">
+                       placeholder="Ejemplo: Xbox" aria-describedby="buscarHelp">
                 <label for="floatingBuscar">Buscar</label>
                 <div id="buscarHelp" class="form-text">
                     @if($errors->first('buscar')) 
@@ -36,38 +36,36 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Buscar</button>
-            <a href="{{ route('usuarios') }}">
+            <a href="{{ route('consolas') }}">
                 <button type="button" class="btn btn-danger">Reiniciar</button>
             </a>
         </form>
 
         <br><hr>
 
-        <!-- Tabla de usuarios -->
+        <!-- Tabla de consolas -->
         <table class="table">
             <tr>
-                <th>Foto</th>
-                <th>N°</th>
+                <th>Clave</th>
                 <th>Nombre</th>
-                <th>F.N</th>
+                <th>Marca</th>
                 <th>Otros</th>
             </tr>
-            @foreach($usuarios as $usuario)
+            @foreach($consolas as $consola)
                 <tr>
-                    <td><img src="{{ asset('storage/' . $usuario->foto) }}" style="width: 30px; height: 30px;"></td>
-                    <td>{{ $usuario->id_usuario }}</td>
-                    <td>{{ $usuario->nombre }}</td>
-                    <td>{{ $usuario->fn }}</td>
+                    <td>{{ $consola->id_consola }}</td>
+                    <td>{{ $consola->nombre }}</td>
+                    <td>{{ $consola->marca }}</td>
                     <td>
-                        <a href="{{ route('usuario_detalle', ['id' => $usuario->id_usuario]) }}">
+                        <a href="{{ route('consola_detalle', ['id' => $consola->id_consola]) }}">
                             <button type="button" class="btn btn-primary btn-sm">Detalle</button>
                         </a>
 
-                        <a href="{{ route('usuario_editar', ['id' => $usuario->id_usuario]) }}">
+                        <a href="{{ route('consola_editar', ['id' => $consola->id_consola]) }}">
                             <button type="button" class="btn btn-warning btn-sm">Editar</button>
                         </a>
 
-                        <a href="{{ route('usuario_borrar', ['id' => $usuario->id_usuario]) }}">
+                        <a href="{{ route('consola_borrar', ['id' => $consola->id_consola]) }}">
                             <button type="button" class="btn btn-danger btn-sm">Borrar</button>
                         </a>
                     </td>
@@ -77,14 +75,12 @@
 
         <!-- Paginación -->
         <div class="d-flex justify-content-center">
-            {!! $usuarios->links() !!}
+            {!! $consolas->links() !!}
         </div>
-
-        <a href="{{ route('usuarios.graficos2') }}">
-    <button type="button" class="btn btn-success btn-sm">Generar Gráficos de Usuarios</button>
+        <a href="{{ route('graficos_consolas') }}">
+    <button type="button" class="btn btn-primary btn-sm">Ver Gráficos de Consolas</button>
 </a>
 
-</p>
     </div>
 </body>
 
@@ -103,4 +99,3 @@
 @stop
 
 @endsection
-
